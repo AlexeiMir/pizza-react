@@ -12,6 +12,7 @@ const sortItems = [{name:'популярности', type:'rating', order: 'desc
 function Home() {
 
     const items = useSelector(({pizzas}) => pizzas.items)
+    const cartItems = useSelector(({cart}) => cart.items)
     const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded)
     const {sortBy,category} = useSelector(({filters}) => filters)
     const dispatch = useDispatch()
@@ -45,9 +46,12 @@ function Home() {
                 {isLoaded
                 ? items&&
                     items.map(obj => (
-                        <PizzaBlock key={obj.id} {...obj} onClickAddPizza={handleAddPizzaToCart}/>
+                        <PizzaBlock key={obj.id} {...obj}
+                                    onClickAddPizza={handleAddPizzaToCart}
+                        addedCount={cartItems[obj.id]&& cartItems[obj.id].items.length}
+                        />
                     ))
-                    : Array(12).fill(0).map(({_,index}) => <LoadingBlock key={index}/>)
+                    : Array(12).fill(0).map((_, index) => <LoadingBlock key={index}/>)
                 }
 
 

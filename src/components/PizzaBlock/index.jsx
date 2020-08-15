@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import Button from "../Button";
 
-function PizzaBlock({imageUrl, name, types, id, sizes, price, onClickAddPizza}) {
+function PizzaBlock({imageUrl, name, types, id, sizes, price, onClickAddPizza,addedCount}) {
     const [activeType, setActiveType] = React.useState(types[0]);
     const [activeSize, setActiveSize] = React.useState(0);
     const availableTypes = ['тонкое', 'традиционное']
@@ -70,7 +70,7 @@ function PizzaBlock({imageUrl, name, types, id, sizes, price, onClickAddPizza}) 
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
+                    {addedCount&&<i>{addedCount}</i>}
                 </Button>
             </div>
         </div>
@@ -83,7 +83,8 @@ PizzaBlock.propTypes = {
     types: PropTypes.arrayOf(PropTypes.number),
     sizes: PropTypes.arrayOf(PropTypes.number),
     price: PropTypes.number.isRequired,
-    onClickAddPizza: PropTypes.func
+    onClickAddPizza: PropTypes.func,
+    addedCount: PropTypes.number
 
 }
 
