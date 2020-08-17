@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router, HashRouter} from "react-router-dom";
 import store from "./redux/store"
 import {Provider} from "react-redux";
 
@@ -15,11 +15,11 @@ import {Provider} from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
-      <Router>
+      <HashRouter>
           <Provider store={store}>
          <App />
           </Provider>
-      </Router>
+      </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
