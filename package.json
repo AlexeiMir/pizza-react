@@ -78,6 +78,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "server": "npx json-server --watch public/db.json --port=3001",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
