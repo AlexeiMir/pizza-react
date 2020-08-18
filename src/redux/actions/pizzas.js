@@ -1,5 +1,10 @@
 import axios from "axios";
 
+const instance = axios.create({
+    withCredentials:true,
+    //baseURL: ``,
+})
+
 const setLoaded = (value) => ({
     type:'SET_LOADED',
     payload:value
@@ -7,7 +12,7 @@ const setLoaded = (value) => ({
 
 export const fetchPizzas = (category,sortBy) => (dispatch) => {
     dispatch(setLoaded(false))
-    axios.get(`/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&_order=${
+    instance.get(`/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&_order=${
         sortBy.order}`).then(
         ({data}) => dispatch(setPizzas(data)))
 }
