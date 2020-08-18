@@ -2,7 +2,7 @@
   "name": "pizza-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexeimir.github.io/pizza-react",
+  "homepage": "https://alexeimir.github.io/pizza-react/",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
