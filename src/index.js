@@ -15,11 +15,11 @@ import {Provider} from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
-      <HashRouter>
+      <Router>
           <Provider store={store}>
          <App />
           </Provider>
-      </HashRouter>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
